@@ -123,10 +123,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+# Ensure the static directories and root paths are set correctly
+STATIC_URL = '/static/'
 
-
-# Correct the STATICFILES_DIRS and STATIC_ROOT
+# If you're using Vercel, make sure that the static files are being built into the correct directory
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'user', 'static'),
@@ -136,8 +136,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'object_detection', 'static'),
 ]
 
-# Ensure STATIC_ROOT points to the expected directory for Vercel build process
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')  # Correct root directory for static files after build
+
 
 
 MEDIA_URL = '/media/'
