@@ -1,0 +1,329 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Expiry date</title>
+    <link rel="stylesheet" href="{% static 'css/main-style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        
+        :root {
+            --primary-color: #2ecc71;
+            --primary-dark: #27ae60;
+            --secondary-color: #3498db;
+            --background-light: #f9f9f9;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+        }
+
+        body {
+            background-image: url("{% static 'images/fruitback.jpg' %}");
+            background-color: #f0f8f0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+         
+            padding: 30px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        header {
+            width: 1165px;
+            margin-right: 50px;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--border-radius);
+            color: white;
+        }
+
+        header h3 {
+                  margin-right: 10px;
+            font-size: 32px;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navigation-bar {
+      
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .navigation-bar a {
+            
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .upload-area {
+            border: 3px dashed var(--primary-color);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            width: 80%;
+            margin: 0 auto 30px;
+            background-color: var(--background-light);
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover {
+            background-color: #e8f5e9;
+            transform: translateY(-2px);
+        }
+
+        .upload-area p {
+            font-size: 18px;
+            color: var(--primary-dark);
+            margin: 10px 0;
+        }
+
+        .upload-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .upload-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .uploaded-image-container {
+            background-color: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 30px auto;
+            max-width: 80%;
+            box-shadow: var(--box-shadow);
+        }
+
+        .uploaded-image-container h4 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .uploaded-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn {;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px 10px;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn.min {
+            padding: 8px 20px;
+            font-size: 14px;
+            background-color: var(--primary-color);
+        }
+
+        #file-name {
+            font-size: 14px;
+            color: var(--primary-dark);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .results {
+            background-color: var(--background-light);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            box-shadow: var(--box-shadow);
+            text-align: left;
+        }
+
+        .results h2 {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .result-details {
+            display: grid;
+            gap: 15px;
+        }
+
+        .result-details p {
+            margin: 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .result-details label {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-right: 10px;
+        }
+
+        #loading {
+            display: none;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+
+            .upload-area {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .uploaded-image-container {
+                max-width: 90%;
+            }
+
+            header h3 {
+                font-size: 24px;
+            }
+        }
+    </style>
+    <script>
+        // Function to handle the drag and drop events
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById('upload-area').style.backgroundColor = '#e8f5e9';
+        }
+
+        function handleDragLeave(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById('upload-area').style.backgroundColor = '';
+        }
+
+        function handleDrop(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const file = event.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                document.getElementById('file-input').files = event.dataTransfer.files;
+                displayImage(file);
+            }
+        }
+
+        function triggerFileInput() {
+            document.getElementById('file-input').click();
+        }
+
+        function displayImage(file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('image-preview').src = e.target.result;
+                document.getElementById('image-preview-container').style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+            document.getElementById('file-name').innerText = 'Selected file: ' + file.name;
+        }
+
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h3>Expiry date</h3>
+        </header>
+        
+        <div class="navigation-bar">
+            <a href="/"><i class="fa fa-arrow-left"></i> Home</a>
+            <a href="history"><button class="btn min">History</button></a>
+        </div>
+        
+        <form method="post" enctype="multipart/form-data" onsubmit="showLoading()">
+            {% csrf_token %}
+            <div align="center" class="row">
+                <div class="upload-area" id="upload-area" 
+                    ondragover="handleDragOver(event)" 
+                    ondragleave="handleDragLeave(event)" 
+                    ondrop="handleDrop(event)">
+                    <p>Drag & Drop your image here</p>
+                    <p>OR</p>
+                    <button type="button" class="upload-btn" onclick="triggerFileInput()">Choose File</button>
+                    <input type="file" name="image" id="file-input" accept="image/*" required style="display: none;" onchange="displayImage(this.files[0])">
+                </div>
+                
+                <div id="image-preview-container" class="uploaded-image-container" style="display: none;">
+                    <h4>Uploaded Image</h4>
+                    <img id="image-preview" src="" alt="Uploaded Image">
+                </div>
+
+                <button type="submit" class="btn">Expiry date</button>
+                <p id="file-name"></p>
+            </div>
+        </form>
+
+        </div>
+        </form>
+        <div id="loading" class="loading"></div>
+        {% if image_uploaded %}
+            <div class="results">
+                <img src="{{ uploaded_image_url }}" alt="Uploaded Image">
+                <div class="result-details">
+                    <h3>Results:</h3>
+                    <p><label>EAN:</label> {{ EAN }}</p>
+                    <p><label>MRP:</label> {{ MRP }}</p>
+                    <p><label>Manufactured Date:</label> {{ manufactured_date }}</p>
+                    <p><label>Expiry Date:</label> {{ expiry_date }}</p>
+                    <p><label>Is Valid:</label> {{ is_valid }}</p><br><br>
+                    <p><label>Text:</label> {{ text }}</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Feature Extract History</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/history-style.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/chips-bg.png' %}");
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f1f1f1;
+        }
+
+        header h4 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin: 0;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table thead {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #d32f2f;
+        }
+
+        .fa-arrow-left {
+            margin-right: 5px;
+        }
+
+        img {
+            max-width: 100px;
+            border-radius: 5px;
+        }
+
+        @media screen and (max-width: 768px) {
+            table thead {
+                display: none;
+            }
+
+            table, table tbody, table tr, table td {
+                display: block;
+                width: 100%;
+            }
+
+            table tr {
+                margin-bottom: 15px;
+            }
+
+            table td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h4>Feature Extract History</h4>
+        </header>
+        <div align="left"><a href="/"><i class="fa fa-arrow-left"></i> Home</a></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>EAN</th>
+                    <th>MRP</th>
+                    <th>Manufactured Date</th>
+                    <th>Expiry Date</th>
+                    <th>is_valid</th>
+                    <th>Text</th>
+                    <th>Uploaded At</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feature_extract in feature_extracts %}
+                <tr>
+                    <td data-label="Image"><img src="{{ feature_extract.image.url }}" alt="Image"></td>
+                    <td data-label="EAN">{{ feature_extract.EAN }}</td>
+                    <td data-label="MRP">{{ feature_extract.MRP }}</td>
+                    <td data-label="Manufactured Date">{{ feature_extract.manufactured_date }}</td>
+                    <td data-label="Expiry Date">{{ feature_extract.expiry_date }}</td>
+                    <td data-label="is_valid">{{ feature_extract.is_valid }}</td>
+                    <td data-label="Text">{{ feature_extract.text }}</td>
+                    <td data-label="Uploaded At">{{ feature_extract.uploaded_at }}</td>
+                    <td data-label="Action"><a href="{% url 'feature_extractor_delete' feature_extract.id %}" class="btn btn-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteCode</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard-style.css' %}">
+     <!-- Vanta.js and Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
+</head>
+</head>
+<body>
+  
+    <header class="header">
+        <div class="header-left">
+            <h1>ByteCode</h1>
+ 
+        </div>
+
+        <div class="header-right">
+               <button><a href="https://github.com/njangid22" >GitHub</a></button>
+            {% if request.user.is_anonymous %}
+            <a href="{% url 'signin' %}" class="logout-button">Signin</a>
+            {% else %}
+            <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+            {% endif %}
+        
+        </div>
+    </header>
+
+
+    <div class="container">
+        
+        <div class="link-boxes">
+           {% comment %} new {% endcomment %}
+<a href="/fresh_detect/" class="card-link">
+  <p style="color: white; font-weight: bold; font-size: 1.75rem; text-decoration: none;">
+    Freshness Detection
+</p>
+
+  <div class="card">
+
+    <img class="img" src="media\uploads\download.jpeg" width="12%" height="100%" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 784.37 1277.39">
+    
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <g id="_1421394342400">
+          <g>
+            <polygon fill="#343434" fill-rule="nonzero" points="392.07,0 383.5,29.11 383.5,873.74 392.07,882.29 784.13,650.54"></polygon>
+            <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,0 -0,650.54 392.07,882.29 392.07,472.33"></polygon>
+            <polygon fill="#3C3C3B" fill-rule="nonzero" points="392.07,956.52 387.24,962.41 387.24,1263.28 392.07,1277.38 784.37,724.89"></polygon>
+            <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,1277.38 392.07,956.52 -0,724.89"></polygon>
+            <polygon fill="#141414" fill-rule="nonzero" points="392.07,882.29 784.13,650.54 392.07,472.33"></polygon>
+            <polygon fill="#393939" fill-rule="nonzero" points="0,650.54 392.07,882.29 392.07,472.33"></polygon>
+          </g>
+        </g>
+      </g>
+    </svg>
+    <div class="textBox">
+      <p class="text head">Freshness Detector</p>
+      <span>Use our state-of-the-art image analysis tools to assess the real-time freshness of fruits and vegetables.</span>
+    </div>
+  </div>
+</a>
+<br>
+<a href="/object_detect/" class="card-link">
+  <p style="color: white; font-weight: bold; font-size: 1.75rem; text-decoration: none;">
+    Object Detector
+</p>
+  <div class="card">
+    <img class="img" src="media\uploads\count.jpg" width="12%" height="100%" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 784.37 1277.39">
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <g id="_1421394342400">
+          <g>
+            <polygon fill="#343434" fill-rule="nonzero" points="392.07,0 383.5,29.11 383.5,873.74 392.07,882.29 784.13,650.54"></polygon>
+            <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,0 -0,650.54 392.07,882.29 392.07,472.33"></polygon>
+            <polygon fill="#3C3C3B" fill-rule="nonzero" points="392.07,956.52 387.24,962.41 387.24,1263.28 392.07,1277.38 784.37,724.89"></polygon>
+            <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,1277.38 392.07,956.52 -0,724.89"></polygon>
+            <polygon fill="#141414" fill-rule="nonzero" points="392.07,882.29 784.13,650.54 392.07,472.33"></polygon>
+            <polygon fill="#393939" fill-rule="nonzero" points="0,650.54 392.07,882.29 392.07,472.33"></polygon>
+          </g>
+        </g>
+      </g>
+    </svg>
+    <div class="textBox">
+      <p class="text head">Object Detector</p>
+      <span>Simplify your inventory management with precise and efficient product counting.</span>
+    </div>
+  </div>
+</a>
+<br>
+
+<a href="/feat_extract/" class="card-link">
+  <p style="color: white; font-weight: bold; font-size: 1.75rem; text-decoration: none;">
+    Feature Extractor
+</p>
+  <div class="card">
+    <img class="img" src="media/uploads/expiry.jpg" width="12%" height="100%" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 784.37 1277.39">
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <g id="_1421394342400">
+          <g>
+            <polygon fill="#343434" fill-rule="nonzero" points="392.07,0 383.5,29.11 383.5,873.74 392.07,882.29 784.13,650.54"></polygon>
+            <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,0 -0,650.54 392.07,882.29 392.07,472.33"></polygon>
+            <polygon fill="#3C3C3B" fill-rule="nonzero" points="392.07,956.52 387.24,962.41 387.24,1263.28 392.07,1277.38 784.37,724.89"></polygon>
+            <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,1277.38 392.07,956.52 -0,724.89"></polygon>
+            <polygon fill="#141414" fill-rule="nonzero" points="392.07,882.29 784.13,650.54 392.07,472.33"></polygon>
+            <polygon fill="#393939" fill-rule="nonzero" points="0,650.54 392.07,882.29 392.07,472.33"></polygon>
+          </g>
+        </g>
+      </g>
+    </svg>
+    <div class="textBox">
+      <p class="text head">Feature Extractor</p>
+      <span>Extract all essential details from product labels, including EAN, MRP, manufacturing date, and expiry date. Ensure your products are up-to-date and safe for use with our automated expiry verification.</span>
+    </div>
+  </div>
+
+</a>
+{% comment %} new end {% endcomment %}
+
+        </div>
+    </div>
+<footer class="footer">
+    <div align="center">
+        ByteCode<br>
+        © 2024 ByteCode. All rights reserved.
+    </div>
+</footer>
+ <!-- Vanta Halo Effect Script -->
+    <script>
+        var setVanta = () => {
+            if (window.VANTA) {
+                window.VANTA.HALO({
+                    el: "body",  // Apply to the entire body or a specific section
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00
+                });
+            }
+        };
+        window.addEventListener('DOMContentLoaded', setVanta);  // Trigger Vanta effect once DOM is loaded
+    </script>
+</body>
+</html>
