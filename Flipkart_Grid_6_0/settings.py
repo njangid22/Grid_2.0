@@ -126,6 +126,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
+# Correct the STATICFILES_DIRS and STATIC_ROOT
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'user', 'static'),
@@ -135,8 +136,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'object_detection', 'static'),
 ]
 
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Ensure STATIC_ROOT points to the expected directory for Vercel build process
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 
 MEDIA_URL = '/media/'
