@@ -24,7 +24,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "poll/wsgi.py"
+            "dest": "Flipkart_Grid_6_0/wsgi.py"
         }
     ]
 }
