@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "Flipkart_Grid_6_0/wsgi.py",
+      "src": "Flipkart_Grid_6_0/manage.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "15mb",
