@@ -40,10 +40,10 @@
    
 ### Freshness Detector
 
-![ByteCode](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Freshness_page.png)
+![ByteCode](https://github.com/njangid22/Grid_2.0/blob/main/Photos/freshness_home.png)
  - Predicts the freshness and identifies the class (type) of fruits and vegetables.
  - Utilizes a model I trained using a dataset from Kaggle with MobileNetV2 as the base model in TensorFlow.
- - ![ByteCode](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Freshness_history.png)
+ - ![ByteCode](https://github.com/njangid22/Grid_2.0/blob/main/Photos/freshness_History.png)
 
 
 ### Feature Extractor
