@@ -12,7 +12,7 @@
 
 1. **Clone the Repository**
    ```bash
-   https://github.com/gourab9817/Flipkart_grid_6.0.git
+   https://github.com/njangid22/Grid_2.0.git
    ```
 2. **Create a Virtual Environment**
     ```bash
