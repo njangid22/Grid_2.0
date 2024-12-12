@@ -48,18 +48,17 @@
 
 ### Feature Extractor
 
-![ByteCode](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Feature_extractor.png)
+![ByteCode](https://github.com/njangid22/Grid_2.0/blob/main/Photos/Expiry_page.png)
  - Extracts product details such as MRP, EAN, manufacture date, and expiry date using OCR powered by Pytesseract.
  - Processes the text to validate the expiry date of the product.
-![ByteCode](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Feature_history.png)
 
 
 ### Object Detection
 
-![ByteCode](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Object_detection.png)
+![ByteCode](https://github.com/njangid22/Grid_2.0/blob/main/Photos/Object_count_page.png)
  - Counts and highlights products within an image.
  - Employs the EfficientDet model from TensorFlow Hub.
-![ByteCode](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Object_identification_history.png)
+![ByteCode](https://github.com/njangid22/Grid_2.0/blob/main/Photos/Object_history.png)
 
 
 ### Dataset For `Freshness Detector`
