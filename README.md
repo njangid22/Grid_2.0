@@ -5,7 +5,7 @@
 **Demo Video Link:** https://youtu.be/Nq0AdUHKcBs
 
 
-![ByteCode](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Website_Home.png)
+![ByteCode](https://github.com/njangid22/Grid_2.0/blob/main/Photos/home.png)
 
 
 **Step-by-Step Guide to Setting Up and Running the Application**
