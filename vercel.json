@@ -2,29 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "Flipkart_Grid_6_0/manage.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.9"
-      }
-    },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "staticfiles_build"  
-      }
+      "src": "manage.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "Flipkart_Grid_6_0/wsgi.py"
+      "dest": "/manage.py"
     }
-  ]
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "Grid_2.0.settings",
+    "DATABASE_URL": "your_database_url"
+  }
 }
