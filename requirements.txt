@@ -1,14 +1,15 @@
 # Essential for your Django app
-Django==5.1.1
-gunicorn==20.1.0
+Django>=3.2,<4.0
+gunicorn  # You’ll need this for running Django on Vercel or any other deployment
+psycopg2-binary  # This replaces psycopg2 for easier installation
+whitenoise  # To serve static files efficiently
 
 # Useful utilities and dependencies for web apps
 requests==2.32.3
 sqlparse==0.5.1
-whitenoise==6.5.0  # For serving static files in Django
 
-# Database connection, if needed
-psycopg2==2.9.7  # If you're using PostgreSQL; otherwise remove
+
+
 
 # Lighter replacements for heavy libraries
 opencv-python-headless==4.10.0.84  # Lighter version of OpenCV, no GUI
