@@ -83,8 +83,12 @@ WSGI_APPLICATION = 'Flipkart_Grid_6_0.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
@@ -126,7 +130,7 @@ USE_TZ = True
 # Ensure the static directories and root paths are set correctly
 STATIC_URL = '/static/'
 
-# If you're using Vercel, make sure that the static files are being built into the correct directory
+# Static files directories
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'user', 'static'),
@@ -136,9 +140,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'object_detection', 'static'),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')  # Correct root directory for static files after build
-
-
+# Correct root directory for static files after build
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -152,6 +155,3 @@ FRESHNESS_DETECTOR_MEDIA_ROOT = os.path.join(BASE_DIR, 'freshness_detector', 'me
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import os
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
