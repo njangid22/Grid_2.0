@@ -86,7 +86,7 @@ nest-asyncio==1.6.0
 nh3==0.2.18
 notebook==7.2.2
 notebook_shim==0.2.4
-numpy==1.26.4
+numpy==1.23.5  # Use a compatible version for Python 3.10
 opencv-python==4.10.0.84
 opt_einsum==3.4.0
 optree==0.13.0
@@ -108,9 +108,8 @@ pyparsing==3.2.0
 pytesseract==0.3.13
 python-dateutil==2.9.0.post0
 python-json-logger==2.0.7
-pywin32==308
-pywin32-ctypes==0.2.3
-pywinpty==2.0.14
+pywin32-ctypes==0.2.3  # Optional for Windows, but won't affect Linux
+pywinpty==2.0.14  # Optional for Windows
 PyYAML==6.0.2
 pyzmq==26.2.0
 readme_renderer==44.0
@@ -157,5 +156,4 @@ wheel==0.44.0
 widgetsnbextension==4.0.13
 wrapt==1.16.0
 zipp==3.20.2
-Django==5.1.1
 gunicorn==20.1.0
