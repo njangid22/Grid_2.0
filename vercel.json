@@ -14,6 +14,7 @@
   ],
   "env": {
     "DJANGO_SETTINGS_MODULE": "Flipkart_Grid_6_0.settings",
-    "DATABASE_URL": "your_database_url"
+    "DATABASE_URL": "your_database_url",
+    "DJANGO_DEBUG": "False"
   }
 }
