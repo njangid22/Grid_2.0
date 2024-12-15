@@ -128,7 +128,7 @@ sqlparse==0.5.1
 stack-data==0.6.3
 tensorboard==2.17.1
 tensorboard-data-server==0.7.2
-tensorflow==2.17.0  # Updated package
+tensorflow==2.17.0  
 tensorflow-hub==0.16.1
 tensorflow_object_detection_api==0.1.1
 termcolor==2.5.0
